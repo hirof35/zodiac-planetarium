@@ -1,73 +1,20 @@
-# React + TypeScript + Vite
+# 🌌 Real-Time Zodiac Planetarium
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TypeScript と React (Canvas API) で構築された、リアルタイムな黄道十二星座の天体観測シミュレーターです。
+<img width="1214" height="1025" alt="スクリーンショット 2026-06-03 133525" src="https://github.com/user-attachments/assets/7e250e34-eeba-4c89-8e11-51305a1e4d2a" />
 
-Currently, two official plugins are available:
+## 🚀 特徴
+- **3D空間から2D画面への数理投影**: 赤経・赤緯（黄経・黄緯）の球面幾何データを、行列回転とパースペクティブ計算によって正確に2DのCanvasピクセルへ変換。
+- **物理的な星の瞬き（Twinkle Effect）**: 恒星の視等級（Magnitude）と時間軸の波動関数を同期させ、大気によるきらめきをシミュレート。
+- **スペクトル色（固有色）の再現**: アンタレスの赤色超巨星、カストルの高温青白星など、星の物理的特性に応じたハロー（光輪）グラデーションを描画。
+- **ターゲット・ロックオン機構**: カメラの方位角（Yaw）から最も近い星座を動的に判定し、強調表示。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ 技術スタック
+- React 19 / TypeScript
+- Vite (Build Tool)
+- HTML5 Canvas API
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 セットアップ
+```bash
+npm install
+npm run dev
